@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <nav class="dwp-side-navigation" aria-label="Side" role="navigation">
+      <ul class="dwp-side-navigation__list">
+      <li class="dwp-side-navigation__item">
+          <a href="#1" class="dwp-side-navigation__link">
+              Item 1
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+          <a id="item-2" href="#item-2" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="page">
+              Item 2
+          </a>
+          <ul class="dwp-side-navigation__list dwp-side-navigation__list--sub-item">
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-1" class="dwp-side-navigation__link">
+                      subitem 1
+                  </a>
+              </li>
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-2" class="dwp-side-navigation__link">
+                      subitem 2
+                  </a>
+              </li>
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-3" class="dwp-side-navigation__link">
+                      subitem 3
+                  </a>
+              </li>
+          </ul>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-3" class="dwp-side-navigation__link">
+              Item 3
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-4" class="dwp-side-navigation__link">
+              Item 4
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-5" class="dwp-side-navigation__link">
+              Item 5
+          </a>
+      </li>
+      </ul>
+      </nav> 
+
+
+
+    <h1 class="govuk-heading-xl">
+      Agent view
+    </h1>
+
+  </div>
+</div>
+
+{% endblock %}
