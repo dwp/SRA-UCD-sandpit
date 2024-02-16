@@ -1,0 +1,207 @@
+{% extends "layouts/agent.njk" %}
+
+{% block title %}Personal details{% endblock %}
+
+{% block main %}
+{# you could use the following partial to have a consistent example #}
+{# include 'partials/keybar-with-jane.njk' #}
+{{ 
+  dwpKeyDetailsBar({
+      primaryIdentifier: {
+          text: 'Name:',
+          value: 'Jane Doe'
+      },
+      secondaryIdentifier: {
+          text: 'National Insurance Number:',
+          value: 'QQ 12 34 56 X'
+      },
+      additionalData: [
+          {
+              value: "4 June 1972",
+              text: "Date of birth:"
+          }
+      ]
+  }) 
+}} 
+
+<div class="govuk-width-container">
+    {# uses https://design-system.service.gov.uk/components/back-link/ #}
+    {{ 
+      govukBackLink({
+        text: "Back",
+        href: "#"
+      })
+    }}
+    <div class="govuk-grid-row govuk-main-wrapper govuk-main-wrapper--auto-spacing">
+    <h1 class="govuk-heading-xl">Personal details</h1>
+    <div class="govuk-grid-column-one-third">
+
+    <nav class="dwp-side-navigation" aria-label="Side" role="navigation">
+      <ul class="dwp-side-navigation__list">
+      <li class="dwp-side-navigation__item">
+          <a href="#1" class="dwp-side-navigation__link">
+              Core biographic information
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+          <a id="item-2" href="#item-2" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="page">
+              Residential information
+          </a>
+          <ul class="dwp-side-navigation__list dwp-side-navigation__list--sub-item">
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-1" class="dwp-side-navigation__link">
+                      Current address
+                  </a>
+              </li>
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-2" class="dwp-side-navigation__link">
+                      Past addresses
+                  </a>
+              </li>
+              <li class="dwp-side-navigation__sub-item">
+                <a href="#subitem-3" class="dwp-side-navigation__link">
+                    Habitual Residency
+                </a>
+            </li>
+          </ul>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-3" class="dwp-side-navigation__link">
+              Contact information
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-4" class="dwp-side-navigation__link">
+              Contact preferences
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-5" class="dwp-side-navigation__link">
+              Item 5
+          </a>
+      </li>
+      </ul>
+      </nav> 
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        <main id="main-content">
+            {# first column #}
+            <h2 class="govuk-heading-l">Residential information</h2>
+            <h3 class="govuk-heading-m">Current address</h3>
+            {# uses https://design-system.service.gov.uk/components/summary-list/ #}
+            {{ 
+              govukSummaryList({
+                attributes: {
+                  id: "current-address"
+                },
+                rows: [
+                  {
+                    key: {
+                      text: "Address"
+                    },
+                    value: {
+                      html: "1 test House <br /> Test culdesac <br /> Test town"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "City"
+                    },
+                    value: {
+                      text: "Test city"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Postcode"
+                    },
+                    value: {
+                      text: "TT2 2XX"
+                    }
+                  }
+                ]
+                })
+            }}
+            <h3 class="govuk-heading-m">Previous addresses</h3>
+            {# uses https://design-system.service.gov.uk/components/summary-list/ #}
+            {{ 
+              govukSummaryList({
+                attributes: {
+                  id: "previous-addresses"
+                },
+                rows: [
+                  {
+                    key: {
+                      text: "Address"
+                    },
+                    value: {
+                      html: "1 Test flat <br /> Test street <br /> Test town"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "City"
+                    },
+                    value: {
+                      text: "Test city"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Postcode"
+                    },
+                    value: {
+                      text: "TT1 1XX"
+                    }
+                  }
+                ]
+                })
+            }}
+            <h3 class="govuk-heading-m">Habitual Residency</h3>
+            {# uses https://design-system.service.gov.uk/components/summary-list/ #}
+            {{ 
+              govukSummaryList({
+                attributes: {
+                  id: "habitual-Residency"
+                },
+                rows: [
+                  {
+                    key: {
+                      text: "Resident from birth"
+                    },
+                    value: {
+                      text: "No"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Nationality"
+                    },
+                    value: {
+                      text: "American"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Validated prescence"
+                    },
+                    value: {
+                      text: "Yes"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Resident from date"
+                    },
+                    value: {
+                      text: "30 May 2009"
+                    }
+                  }
+                ]
+                })
+            }}
+        </main>
+      </div>
+    </div>
+</div>
+{% endblock %}
