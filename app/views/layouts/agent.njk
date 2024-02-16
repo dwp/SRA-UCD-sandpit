@@ -1,0 +1,48 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.njk" %}
+
+{% from "internal-service-header/macro.njk" import dwpHeader %}
+{% from "internal-service-footer/macro.njk" import dwpFooter %}
+{% from "key-details-bar/macro.njk" import dwpKeyDetailsBar %}
+
+{% block pageTitle %} {% block title %}Page{% endblock %} - {{ serviceName }} {% endblock %}
+
+{% block header %}
+    {{ 
+        dwpHeader({
+            name: serviceName,
+            serviceHref: '/',
+            container: true
+        })
+    }}
+{% endblock %}
+
+{% block main %}
+    {% block mainStart %}{% endblock %}
+    <div class="govuk-width-container {{ containerClasses }}">
+    {% block beforeContent %}{% endblock %}
+    <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        {% block content %}{% endblock %}
+    </main>
+    </div>
+{% endblock %}
+
+
+
+{% block footer %}
+    {{ dwpFooter({
+        meta: {
+            visuallyHiddenTitle: "Support links",
+            items: [
+                {
+                    href: links.accessibility | d("/accessibility"),
+                    text: "Accessibility"
+                },
+                {
+                    href: links.privacy | d("/privacy"),
+                    text: "Privacy"
+                }
+            ]
+        }
+        }) 
+    }} 
+{% endblock %}
