@@ -67,17 +67,32 @@
       </li>
       <li class="dwp-side-navigation__item">
           <a href="#item-3" class="dwp-side-navigation__link">
+              Relationship information
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+        <a href="#item-4" class="dwp-side-navigation__link">
+            Additional support
+        </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+        <a href="#item-5" class="dwp-side-navigation__link">
+            Health conditions
+        </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-6" class="dwp-side-navigation__link">
               Contact information
           </a>
       </li>
       <li class="dwp-side-navigation__item">
-          <a href="#item-4" class="dwp-side-navigation__link">
+          <a href="#item-7" class="dwp-side-navigation__link">
               Contact preferences
           </a>
       </li>
       <li class="dwp-side-navigation__item">
-          <a href="#item-5" class="dwp-side-navigation__link">
-              Item 5
+          <a href="#item-8" class="dwp-side-navigation__link">
+              Contact history
           </a>
       </li>
       </ul>
@@ -87,7 +102,12 @@
         <main id="main-content">
             {# first column #}
             <h2 class="govuk-heading-l">Residential information</h2>
-            <h3 class="govuk-heading-m">Current address</h3>
+            <div class="govuk-grid-column-two-thirds govuk-!-padding-0">
+              <h3 class="govuk-heading-m">Current address</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-padding-0">
+              <a href= "#" class="govuk-link" style="float:right;">Change</a>
+            </div>
             {# uses https://design-system.service.gov.uk/components/summary-list/ #}
             {{ 
               govukSummaryList({
@@ -122,7 +142,12 @@
                 ]
                 })
             }}
-            <h3 class="govuk-heading-m">Previous addresses</h3>
+            <div class="govuk-grid-column-two-thirds govuk-!-padding-0">
+              <h3 class="govuk-heading-m">Previous address</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-padding-0">
+              <a href= "#" class="govuk-link" style="float:right;">Change</a>
+            </div>
             {# uses https://design-system.service.gov.uk/components/summary-list/ #}
             {{ 
               govukSummaryList({
@@ -157,7 +182,12 @@
                 ]
                 })
             }}
-            <h3 class="govuk-heading-m">Habitual Residency</h3>
+            <div class="govuk-grid-column-two-thirds govuk-!-padding-0">
+              <h3 class="govuk-heading-m">Habitual residency</h3>
+            </div>
+            <div class="govuk-grid-column-one-third govuk-!-padding-0">
+              <a href= "#" class="govuk-link" style="float:right;">Change</a>
+            </div>
             {# uses https://design-system.service.gov.uk/components/summary-list/ #}
             {{ 
               govukSummaryList({
