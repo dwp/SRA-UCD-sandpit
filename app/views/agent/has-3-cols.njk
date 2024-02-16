@@ -1,0 +1,205 @@
+{% extends "layouts/agent.njk" %}
+
+{% block title %}Personal details{% endblock %}
+
+{% block main %}
+{# you could use the following partial to have a consistent example #}
+{# include 'partials/keybar-with-jane.njk' #}
+{{ 
+  dwpKeyDetailsBar({
+      primaryIdentifier: {
+          text: 'Name:',
+          value: 'Jane Doe'
+      },
+      secondaryIdentifier: {
+          text: 'National Insurance Number:',
+          value: 'QQ 12 34 56 X'
+      },
+      additionalData: [
+          {
+              value: "4 June 1972",
+              text: "Date of birth:"
+          }
+      ]
+  }) 
+}} 
+
+<div class="govuk-width-container">
+    {# uses https://design-system.service.gov.uk/components/back-link/ #}
+    {{ 
+      govukBackLink({
+        text: "Back",
+        href: "#"
+      })
+    }}
+    <div class="govuk-grid-row govuk-main-wrapper govuk-main-wrapper--auto-spacing">
+    <div class="govuk-grid-column-one-quarter">
+
+    <nav class="dwp-side-navigation" aria-label="Side" role="navigation">
+      <ul class="dwp-side-navigation__list">
+      <li class="dwp-side-navigation__item">
+          <a href="#1" class="dwp-side-navigation__link">
+              Item 1
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item dwp-side-navigation__item--selected">
+          <a id="item-2" href="#item-2" class="dwp-side-navigation__link dwp-side-navigation__link--selected" aria-current="page">
+              Item 2
+          </a>
+          <ul class="dwp-side-navigation__list dwp-side-navigation__list--sub-item">
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-1" class="dwp-side-navigation__link">
+                      subitem 1
+                  </a>
+              </li>
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-2" class="dwp-side-navigation__link">
+                      subitem 2
+                  </a>
+              </li>
+              <li class="dwp-side-navigation__sub-item">
+                  <a href="#subitem-3" class="dwp-side-navigation__link">
+                      subitem 3
+                  </a>
+              </li>
+          </ul>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-3" class="dwp-side-navigation__link">
+              Item 3
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-4" class="dwp-side-navigation__link">
+              Item 4
+          </a>
+      </li>
+      <li class="dwp-side-navigation__item">
+          <a href="#item-5" class="dwp-side-navigation__link">
+              Item 5
+          </a>
+      </li>
+      </ul>
+      </nav> 
+    </div>
+    <div class="govuk-grid-column-one-half">
+        <main id="main-content">
+            {# first column #}
+            <h1 class="govuk-heading-m">Personal details</h1>
+            {# uses https://design-system.service.gov.uk/components/summary-list/ #}
+            {{ 
+              govukSummaryList({
+                attributes: {
+                  id: "personal-details"
+                },
+                rows: [
+                  {
+                    key: {
+                      text: "Preferred name"
+                    },
+                    value: {
+                      text: "Jehanne"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Phone number"
+                    },
+                    value: {
+                      text: "07799 00000"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Postcode"
+                    },
+                    value: {
+                      text: "N2 1XX"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "SRTI"
+                    },
+                    value: {
+                      text: "No"
+                    }
+                  }
+                ]
+                })
+            }}
+            <h2 class="govuk-heading-m">Referral details</h2>
+            {# uses https://design-system.service.gov.uk/components/summary-list/ #}
+            {{ 
+              govukSummaryList({
+                attributes: {
+                  id: "referral-details"
+                },
+                rows: [
+                  {
+                    key: {
+                      text: "Referral date"
+                    },
+                    value: {
+                      text: "2 February 2021"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Referral type"
+                    },
+                    value: {
+                      text: "New referral"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Benefit type"
+                    },
+                    value: {
+                      text: "PIP"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Assessment centre"
+                    },
+                    value: {
+                      text: "London"
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Case manager"
+                    },
+                    value: {
+                      text: "Jared Mosely-Redman"
+                    }
+                  }
+                ]
+                })
+            }}
+        </main>
+      </div>
+      <div class="govuk-grid-column-one-quarter">
+        {# Second column #}           
+          <div class="app-related-items" role="complementary">
+              <h2 class="govuk-heading-m" id="subsection-title">What you can do next</h2>
+              <nav aria-labelledby="subsection-title">
+                <ul class="govuk-list">
+                  <li>
+                    <a href="#" class="govuk-link govuk-link--no-visited-state">Start assessment</a>
+                  </li>
+                  <li>
+                    <a href="#" class="govuk-link govuk-link--no-visited-state">Update status</a>
+                  </li>
+                  <li>
+                    <a href="#" class="govuk-link govuk-link--no-visited-state">Move to another caseload</a>
+                  </li>
+                </ul>
+              </nav>
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
