@@ -1,0 +1,10 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+<!-- more details at https://github.com/govuk-one-login/service-header/blob/main/src/nunjucks/template.njk -->
+  {{ 
+        govukOneLoginServiceHeader({
+            serviceName: "Your personal benefit account"
+    }) 
+  }}
+{% endblock %}
