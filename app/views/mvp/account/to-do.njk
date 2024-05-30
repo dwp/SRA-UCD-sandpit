@@ -18,10 +18,13 @@
         idPrefix: "next-actions",
         items: [
             {
-            title: { text: "Home onwership" },
-            href: "/mvp/account/home-ownership/",
+            title: { text: "Home ownership" },
+            href: "/mvp/account/home-ownership/is-the-address-you-have-moved-to-rented-or-owned",
             status: {
                 tag: {
+                    text: "Complete",
+                    classes: "govuk-tag--green"
+                } if data.section["home-ownership"] === "true" else {
                     text: "Incomplete",
                     classes: "govuk-tag--blue"
                 }
@@ -37,7 +40,8 @@
             href: "/mvp/account/relationship-changes/have-you-moved-in-with-a-partner",
             status: {
                 tag: {
-                    text: "Complete"
+                    text: "Complete",
+                    classes: "govuk-tag--green"
                 } if data.section["relationship-changes"] === "true" else {
                     text: "Incomplete",
                     classes: "govuk-tag--blue"
@@ -48,8 +52,11 @@
         })
 }}
 
-    <!-- @TODO - what does the nd of this look like? -->
-
+    {% if data.section["relationship-changes"] === "true" and data.section["home-ownership"] === "true" %}
+        <!-- if everything complete -->
+    {% else %}
+        <!-- if things still to complete -->
+    {% endif %}
 
   </div>
 </div>

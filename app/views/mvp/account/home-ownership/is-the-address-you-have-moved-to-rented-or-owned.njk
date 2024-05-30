@@ -1,0 +1,43 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Is the address you moved to rented or owned?" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ 
+        govukRadios({
+            name: "isTheAddredssRentedOrOwned",
+            fieldset: {
+                legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "Rented",
+                    text: "Rented",
+                    checked: true if data.isTheAddredssRentedOrOwned === "Rented"
+                },
+                {
+                    value: "Owned",
+                    text: "Owned",
+                    checked: true if data.isTheAddredssRentedOrOwned === "Owned"
+                },
+                {
+                    value: "Do not know",
+                    text: "Do not know",
+                    checked: true if data.isTheAddredssRentedOrOwned === "Do not know"
+                }
+            ]
+        })
+    }}
+
+  </div>
+</div>
+
+{% endblock %}

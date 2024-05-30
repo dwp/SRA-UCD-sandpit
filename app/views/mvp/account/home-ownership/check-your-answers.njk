@@ -1,0 +1,75 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Check your answers before completing this section" %}
+{% set formButton = "Accept and submit" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers before completing this section</h1>
+
+    <h2 class="govuk-heading-m">Home onwership</h2>
+    {% set baseurl = "/mvp/account/home-ownership" %}
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <!-- change answer chunk -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is the address you moved to rented or owned?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.isTheAddredssRentedOrOwned }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="{{ baseurl }}/is-the-address-you-have-moved-to-rented-or-owned">Change<span class="govuk-visually-hidden"> Is the address you moved to rented or owned?</span></a>
+            </dd>
+        </div>
+   
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Did you own your own home before moving to this address?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.didYouOwnYourOwnHome }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="{{ baseurl }}/did-you-own-your-own-home">Change<span class="govuk-visually-hidden"> Did you own your own home before moving to this address?</span></a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you have a mortgage on your new address?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.doYouHaveAMortgage }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="{{ baseurl }}/do-you-have-a-mortgage-on-your-new-address">Change<span class="govuk-visually-hidden"> Do you have a mortgage on your new address?</span></a>
+            </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Do you pay a service charge or ground rent at your new address?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.doYoupayAServiceChange }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="{{ baseurl }}/do-you-pay-service-charges">Change<span class="govuk-visually-hidden"> Do you pay a service charge or ground rent at your new address?</span></a>
+            </dd>
+        </div>
+    </dl>
+
+
+
+
+    <p>By submitting this section you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+    <input type="hidden" name="section[home-ownership]" value="true" />
+  </div>
+</div>
+
+{% endblock %}

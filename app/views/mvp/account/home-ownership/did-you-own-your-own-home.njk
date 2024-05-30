@@ -1,0 +1,39 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Did you own your own home before moving to this address?" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ 
+        govukRadios({
+            classes: "govuk-radios--inline",
+            name: "didYouOwnYourOwnHome",
+            fieldset: {
+                legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: true if data.didYouOwnYourOwnHome === "Yes"
+                },
+                {
+                    value: "No",
+                    text: "No",
+                    checked: true if data.didYouOwnYourOwnHome === "No"
+                }
+            ]
+        })
+    }}
+
+  </div>
+</div>
+
+{% endblock %}

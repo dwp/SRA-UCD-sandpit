@@ -1,0 +1,39 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Do you have a mortgage on your new address?" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ 
+        govukRadios({
+            classes: "govuk-radios--inline",
+            name: "doYouHaveAMortgage",
+            fieldset: {
+                legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "Yes",
+                    text: "Yes",
+                    checked: true if data.doYouHaveAMortgage === "Yes"
+                },
+                {
+                    value: "No",
+                    text: "No",
+                    checked: true if data.doYouHaveAMortgage === "No"
+                }
+            ]
+        })
+    }}
+
+  </div>
+</div>
+
+{% endblock %}
