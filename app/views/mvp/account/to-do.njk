@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="To do list" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ pageName }}</h1>
+    
+    <!-- @TODO - flesh out -->
+    <p>We require addtional information on these subsjects to progress you change of circumstances.</p>
+
+
+{{ 
+    govukTaskList({
+        idPrefix: "next-actions",
+        items: [
+            {
+            title: { text: "Home onwership" },
+            href: "/mvp/account/home-ownership/",
+            status: {
+                tag: {
+                    text: "Incomplete",
+                    classes: "govuk-tag--blue"
+                }
+            }
+            },
+            {
+            title: {
+                text: "Relationship changes"
+            },
+            hint: {
+                text: "Confirm wheather your living arragements have stayed the same or changed, providing new details of those you live with if they have changed."
+            },
+            href: "/mvp/account/relationship-changes/have-you-moved-in-with-a-partner",
+            status: {
+                tag: {
+                    text: "Complete"
+                } if data.section["relationship-changes"] === "true" else {
+                    text: "Incomplete",
+                    classes: "govuk-tag--blue"
+                }
+            }
+            }
+        ]
+        })
+}}
+
+    <!-- @TODO - what does the nd of this look like? -->
+
+
+  </div>
+</div>
+
+{% endblock %}

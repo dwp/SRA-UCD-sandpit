@@ -1,0 +1,69 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Check your answers before completing this section" %}
+{% set formButton = "Accept and submit" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers before completing this section</h1>
+
+    <h2 class="govuk-heading-m">Personal details</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <!-- change answer chunk -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Have you moved in with your partner?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.movedInWithPartner | title }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/mvp/account/relationship-changes/have-you-moved-in-with-a-partner">Change<span class="govuk-visually-hidden"> Have you moved in with your partner?</span></a>
+            </dd>
+        </div>
+        {% if data.movedInWithPartner === "yes" %}
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Partner Details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>{{ data.partner["first-name"] }} {{ data.partner["last-name"] }}</p>
+
+              <p>{{ data.partner["nino"] }}</p>
+
+              <p> {{ (data['partner-dob-year'] + "-" + data['partner-dob-month'] + "-" + data['partner-dob-day']) | govukDate }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/mvp/account/relationship-changes/partner-details">Change<span class="govuk-visually-hidden"> partner details?</span></a>
+            </dd>
+        </div>
+
+        {% endif %}
+    <!-- end change block -->
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Does anyone live in the property apart from you and your partner, if you have one?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.anyLiveInTheProperty | title }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/mvp/account/relationship-changes/does-anyone-live-in-the-property">Change<span class="govuk-visually-hidden"> Does anyone live in the property apart from you and your partner, if you have one?</span></a>
+            </dd>
+        </div>
+    </dl>
+
+
+
+
+    <p>By submitting this section you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+    <input type="hidden" name="section[relationship-changes]" value="true" />
+  </div>
+</div>
+
+{% endblock %}

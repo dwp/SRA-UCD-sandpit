@@ -1,0 +1,39 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Does anyone live in the property apart from you and your partner, if you have one?" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ 
+        govukRadios({
+            classes: "govuk-radios--inline",
+            name: "anyLiveInTheProperty",
+            fieldset: {
+                legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "yes",
+                    text: "Yes",
+                    checked: true if data.anyLiveInTheProperty === "yes"
+                },
+                {
+                    value: "no",
+                    text: "No",
+                    checked: true if data.anyLiveInTheProperty === "no"
+                }
+            ]
+        })
+    }}
+
+  </div>
+</div>
+
+{% endblock %}

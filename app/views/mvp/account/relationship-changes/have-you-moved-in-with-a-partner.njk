@@ -1,0 +1,39 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Have you moved in with a partner?" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ 
+        govukRadios({
+            classes: "govuk-radios--inline",
+            name: "movedInWithPartner",
+            fieldset: {
+                legend: {
+                    text: pageName,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "yes",
+                    text: "Yes",
+                    checked: true if data.movedInWithPartner === "yes"
+                },
+                {
+                    value: "no",
+                    text: "No",
+                    checked: true if data.movedInWithPartner === "no"
+                }
+            ]
+        })
+    }}
+
+  </div>
+</div>
+
+{% endblock %}

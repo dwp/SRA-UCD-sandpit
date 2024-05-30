@@ -1,0 +1,82 @@
+{% extends "layouts/form.html" %}
+
+{% set pageName="Details about the partner you have moved in with" %}
+
+{% block pageContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">{{ pageName }}</h1>
+    <!-- @TODO probably need a restyle? -->
+    {{ 
+        govukInput({
+            label: {
+                text: "First name"
+            },
+            classes: "govuk-!-width-three-quarters",
+            name: "partner[first-name]",
+            value: data.partner["first-name"]
+        })
+    }}
+
+    {{ 
+        govukInput({
+            label: {
+                text: "Last name"
+            },
+            classes: "govuk-!-width-three-quarters",
+            name: "partner[last-name]",
+            value: data.partner["last-name"]
+        })
+    }}
+
+    {{ 
+        govukInput({
+            label: {
+                text: "National Insurance number"
+            },
+            hint: {
+                text: "For example QQ 11 11 11 C"
+            },
+            classes: "govuk-!-width-three-quarters",
+            name: "partner[nino]",
+            value: data.partner["nino"]
+        })
+    }}
+
+    {{ 
+        govukDateInput({
+            id: "partner-dob",
+            namePrefix: "partner-dob",
+            fieldset: {
+                legend: {
+                    text: "Date of birth"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
+            },
+            items: [
+            {
+                classes: "govuk-input--width-2",
+                name: "day",
+                value: data['partner-dob-day']
+            },
+            {
+                classes: "govuk-input--width-2",
+                name: "month",
+                value: data['partner-dob-month']
+            },
+            {
+                classes: "govuk-input--width-4",
+                name: "year",
+                value: data['partner-dob-year']
+            }
+            ]
+        })
+    }}
+
+  </div>
+</div>
+
+{% endblock %}
